@@ -1,0 +1,25 @@
+# Python缓存
+__pycache__/
+*.pyc
+
+# Conda环境
+.conda/
+venv/
+
+# 模型文件
+*.pt
+*.pth
+
+# 视频文件
+videos/*.mp4
+videos/*.avi
+
+# YOLO输出
+runs/
+results/
+
+# PyCharm配置
+.idea/
+
+# 系统文件
+.DS_Store
