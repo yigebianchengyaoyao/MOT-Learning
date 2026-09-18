@@ -26,8 +26,9 @@ def associate_detections_to_tracks(
     if len(tracks)==0:
         return(
             [],
-            [],
-            list(range(len(tracks)))
+            list(range(len(detections))),
+            []
+
         )
 
     #创建IoU矩阵

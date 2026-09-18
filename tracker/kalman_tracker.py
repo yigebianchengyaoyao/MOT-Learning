@@ -35,6 +35,14 @@ class KalmanTracker:
         self.kf.measurementNoiseCov=(
             np.eye(2,dtype=np.float32)*1
         )
+        # 后验误差协方差
+        # OpenCV默认errorCovPost全为0，会把卡尔曼增益压到接近0，
+        # 滤波器几乎不采信检测结果，表现为"预测严重滞后、速度要很多帧才估计出来"。
+        # 这里初始化为较大值，表示"一开始对目标状态完全不确定"。
+        self.kf.errorCovPost = (
+                np.eye(4, dtype=np.float32) * 10
+        )
+
         x1,y1,x2,y2=bbox
         cx=(x1+x2)/2
         cy=(y1+y2)/2
